@@ -1,0 +1,115 @@
+.vn-scene {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.vn-standing {
+  position: absolute;
+  top: 108px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 660px;
+  max-width: 88vw;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.25));
+  z-index: 1;
+}
+
+.vn-standing-placeholder {
+  width: 480px;
+  aspect-ratio: 3 / 5;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-faint);
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.vn-dialogue {
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: fixed;
+  left: calc(var(--sidebar-w) + 40px);
+  right: 24px;
+  bottom: 24px;
+  margin: 0 auto;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 26px 32px;
+  background: var(--panel);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.55);
+  z-index: 30;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.vn-dialogue:disabled {
+  cursor: default;
+}
+
+.vn-nameplate {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+
+.vn-text {
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.vn-text-empty {
+  color: var(--text-faint);
+  font-size: 14px;
+}
+
+.vn-hint {
+  align-self: flex-end;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+@media (max-width: 720px) {
+  /* Anchor the point 2/3 of the way down the character (measured from its
+     own top) to roughly where the dialogue box's top edge sits, no matter
+     how tall/wide the standing image ends up being - "top" targets that
+     point, and translateY(-66.6667%) is relative to the element's own
+     height, so it self-corrects for any aspect ratio. */
+  .vn-standing,
+  .vn-standing-placeholder {
+    position: fixed;
+    top: calc(100vh - 115px);
+    left: 50%;
+    transform: translate(-50%, -66.6667%);
+  }
+
+  .vn-standing {
+    width: min(82vw, 570px);
+  }
+
+  .vn-standing-placeholder {
+    width: min(70vw, 420px);
+  }
+
+  .vn-dialogue {
+    left: 12px;
+    right: 12px;
+    bottom: calc(78px + 12px);
+    padding: 20px 20px;
+    max-height: calc(100vh - 78px - 48px);
+  }
+}

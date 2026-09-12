@@ -1,0 +1,24 @@
+.log-viewer-loading {
+  font-size: 13px;
+  color: var(--text-faint);
+  padding: 20px 0;
+}
+
+.log-viewer-raw {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.log-viewer-raw img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.log-viewer-frame {
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-md);
+  background: #fff;
+  display: block;
+}

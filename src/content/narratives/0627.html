@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>0627</title>
+  <meta name="theme-color" content="#f5f5f5">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    background-color: #f5f5f5;
+    margin: 0;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    color: #111;
+  }
+  .chat-wrapper {
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+    padding: max(14px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
+  .message-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+    max-width: 100%;
+  }
+  .message-block.reverse { flex-direction: row-reverse; }
+  .message-block > img {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  .bubble-container {
+    flex: 1;
+    min-width: 0;
+    max-width: calc(100% - 50px);
+  }
+  .message-block.reverse .bubble-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .bubble-name {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+    line-height: 1.3;
+    word-break: break-all;
+  }
+  .bubble-text {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.55;
+    background: #fff;
+    padding: 10px 14px;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .message-block.reverse .bubble-text { background: #ced8f6; }
+  .bubble-text img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+  @media (max-width: 380px) {
+    .message-block > img {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+    }
+    .bubble-container { max-width: calc(100% - 46px); }
+    .bubble-text { font-size: 14px; padding: 9px 12px; }
+  }
+</style>
+</head>
+<body>
+  <div class="chat-wrapper">
+      <div class="message-block ">
+        <img src="https://pbs.twimg.com/profile_images/1925589902730907648/_DklkuRQ_bigger.jpg" alt="이하람">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:left;">이하람</div>
+          <div class="bubble-text">
+            ......(사람들이 남겨진 곳을 바라본다. 삶이 연장될 수 있다는 희망이 보이자마자 버리고 온 과거를 잠시 마주한다. 이제는 과거가 된 사람들을. 두고 왔지만, 남겨졌다는 것을 실감한다. 그리고 이내 옆에 남은 유일한 현재를 바라본다.) @bml0211<br><br>......갈까요?(지도를 꺼내서 펼치는 손이 조금 떨렸다.)시간이 늦어서, 일단 좀 쉬는게 좋을지도 모르겠네요. 갈 길이 머니까.(약간은 지쳐보이는 얼굴로 말한다. 그것이 마음인지 몸인지는 모르겠으나.)
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block reverse">
+        <img src="https://pbs.twimg.com/profile_images/1925905809529008128/hKPkNoeN_bigger.jpg" alt="범태정">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:right;">범태정</div>
+          <div class="bubble-text">
+            (바깥, 누군가를 바라 마지않았을 땅에 걸음을 내디딘 뒤 당신과 함께 뒤편을 응시한다. 과거가 될 공간, 기억될 사람들. 마지막까지 대체 무엇을 해내었나 의문이 들지만 이내 시선을 옮겼고.) 그래. 지체할수록 위험하기도 하지만. (네 상태를 가늠해 보다, 지도를 대강 훑어보며 한 부근을 짚는다.) 이 서점은 금방이야. 근처에 편의점도 있고. 의약품도 적당히 구할 수 있겠네.
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block ">
+        <img src="https://pbs.twimg.com/profile_images/1925589902730907648/_DklkuRQ_bigger.jpg" alt="이하람">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:left;">이하람</div>
+          <div class="bubble-text">
+            집중력 떨어져서 실수하는것보단 낫겠죠. 전 지금은 좀……쉬고싶어서요.(저희 많이 힘들었잖아요. 달려나갔고, 싸웠고, 사람들이 쓰러지는 모습을 뒤로하고 나왔어야만 했잖아요. 앞길을 막은, 친구였던 이들을 상대해야했잖아요. 어디서부터 어디까지가 생각이고 말인지 모를 것들을 내뱉다보면 탈력감이 느껴진다. 그러네. 나는 많이 지쳐있구나. 그런 생각을 하며 얼굴을 쓸어내린다.)그럼 서점으로 갈까요? 창고 같은곳에 잘만 숨으면, 사람도 많이 없을 것같은데.(당신이 가리킨 곳으로 시선을 옮긴다. 문제집을 사러 자주 들르던 곳의 풍경이 그려진다)좋아요. 여기로 가요.(거리를 가늠하며 서점이 있는 쪽으로 걸음을 옮긴다.)
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block reverse">
+        <img src="https://pbs.twimg.com/profile_images/1925905809529008128/hKPkNoeN_bigger.jpg" alt="범태정">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:right;">범태정</div>
+          <div class="bubble-text">
+            (인간의 일은 한 치 앞도 보장할 수가 없어서, 결국 최악인지 차악인지 헤아릴 수 없는 결과를 낳고야 말았다는 감상에 형용할 수 없는 기억의 갈래가 밀려든다. 그래서, 이내 지워낸다. 지금 당장 해내야 할 주제는 아닌 듯 보여.) 가는 길에 뭔갈 만나면 어떻게 할 생각이지? (생존자 혹은 시체, 어느 쪽을 지칭하는지 모호한 물음을 던지며 내 곁에서 걸음을 옮긴다. 학교를 빠져나오는 것이 다가 아닌 것을 아니, 닥치고서는 늦을 것이 분명한지라.)
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block ">
+        <img src="https://pbs.twimg.com/profile_images/1925589902730907648/_DklkuRQ_bigger.jpg" alt="이하람">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:left;">이하람</div>
+          <div class="bubble-text">
+            ……음, 일단은 좀 피하고싶은데요.(만나는 것이 감염자이든, 생존자이든, 시체이든 받아들일 수 있는 정보량에는 한계가 있었기에 유일한 동반자와의 고립을 택한다. 더이상 소중한 것을 만들고 잃는 것은 사양이였다. 이미 섞여버린 것은 어쩔 수 없다 치더라도 말이다.) 몸 상태도 말이 아니고, 그게 호의적일지, 아닐지는 모르는 거잖아요.(그렇게 말하며 걸음을 옮긴다. 2년간의 추억이 묻은 학교를 지나 지난 시간들 동안의 약속이 담긴 거리를 마주한다. 규이와 함께 가기로 한 고양이 푸딩 카페, 세미랑 같이 이야기를 나누던 프렌차이즈 커피 전문점, 은찬선배와 함께 가기로 한 코인노래방. 추억은, 기억은 발목에 족쇄가 된다. 그러나 그것을 떨쳐낼 수는 없어 자연스럽게 발걸음이 느려진다.) 선배는 어떻게 하고싶은데요?
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block reverse">
+        <img src="https://pbs.twimg.com/profile_images/1925905809529008128/hKPkNoeN_bigger.jpg" alt="범태정">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:right;">범태정</div>
+          <div class="bubble-text">
+            (우호적이거나 적대적인 생존자를 만났을 때 어느 선택지가 과연 유리할지. 여태까지의 선택으론 당연히 합류를 택할 것이라 생각했기에 의아함이 스친다. 그런가. 이제 생존을 위해서라면 ’나만의 선택‘이 필요할 때다.) 틀린 말은 아니야. 도움이 될 수도 있다는 확률도 없는 건 아니지만. ··· 글쎄. 아무래도 상관없어. 이제 와서 어떤 일을 겪든. (본인에겐 없는 기억들이 내려앉아 느려진 네 걸음을 인지하고선 한 치 앞에서 팔목을 잡아 약하게 당겼다.) 그러니 만약에 위험한 상황이 닥치거든 혼자라도 가. 뒤를 돌아보는 건 걸음을 느려지게 할 뿐인 것도 잊지 말고.
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block ">
+        <img src="https://pbs.twimg.com/profile_images/1925589902730907648/_DklkuRQ_bigger.jpg" alt="이하람">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:left;">이하람</div>
+          <div class="bubble-text">
+            (무언가를 잃는 것이 싫다면 그것을 애초에 쥐지 말라고 누군가 말하지 않았던가. 이미 잡아버린 것은 놓고싶지 않았고, 그렇다고 해서 더 무언가를 잡고싶지는 않았으니, 애초에 잡을 수 있을 만한 것들과 멀어지는 수 밖에. 이것은 나를 위한 선택이였으며, 우리가 우리로 남기 위한 선택이었다.) 그런 작은 확률에 무언가를 걸기는 싫어요. 무섭잖아요.(잃는 것이 두려운 것인지, 감당할 수 없는 것을 쥐게 되는 것이 두려운 것인지, 혹은 둘 다 인지는 스스로에게도 의문이였다.) 이제와서 어떤 일을 겪든 상관 없다니.(당신의 손길에 생각의 굴레에서 빠져나온다. 찰그락, 신발과 모래가 맞닿는 소리가 쇠사슬이 부딛히는 소리처럼 들려왔다.) 선배는 진짜. 미련이라고는 없는 사람처럼 구시네요. 금방이라도 스러져도, 무표정하게 제 등을 떠밀어버릴 것처럼 굴어요.(팔목을 잡고있는 손을 바라본다. 이내, 그 약하게 잡은 틈을 비집고 들어가 손을 맞잡는다.) 선배는 위험한 상황이 닥치면, 저 버리고 그냥 가버릴 건가요? (그럴 수 있을 리가 없다는 뻔한 답변은 하지 않는다. 물음으로 돌려줄 뿐.)
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block reverse">
+        <img src="https://pbs.twimg.com/profile_images/1925905809529008128/hKPkNoeN_bigger.jpg" alt="범태정">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:right;">범태정</div>
+          <div class="bubble-text">
+            늘 그런 줄 알았는데. (생존을 위해서라면 제일 쉬운 방편이 있더라도 더러 돌아감을 택하지 않았던가, 우리는. 그 시간들이 만들어낸 더뎌짐. 그와 닮은 소리를 인지하며 귀를 기울였고.) ···. (미련이라. 평가는 네가 냈으므로 어떤 감상이었는지 헤아리는 사이, 손을 파고드는 체온에 시선 둔다.) 그러면 안 되나. 방금 전까지만 해도 대화하던 사람들이 눈물을 흘리면서 널 떠나보내진 않았잖아. 살아남고 싶다고 하는 주제에 잘도, 끝까지. (아닌 쪽도 마찬가지였지만. 이 또한 지겹다고 하면 지겨운 모양새가 될 테다. 그래서···.) 굳이 반대의 상황을 가정하는 건 시험하는 것처럼 들려. 이제 와서 그럴 필요가 있는지는 잘 모르겠지만···. (서서히 걸음을 멈추며 마주 본다.) 그러지 않길 바라서 묻는 건지, 그러길 원하는 건지. 말해.
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block ">
+        <img src="https://pbs.twimg.com/profile_images/1925589902730907648/_DklkuRQ_bigger.jpg" alt="이하람">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:left;">이하람</div>
+          <div class="bubble-text">
+            이미 가진 것을 잃는 것과, 내 것이 아닌 것을 잃는 것은 다른 문제잖아요. 잃지 않기 위한 도박은 괜찮아요. 그게 최선이니까. 하지만……잃지 않기 위해 도박하지 않는 것은, 결국 본질적으로 같은 결을 바라보고 있는 걸요. 전 언제나 같아요. 소중한 것을 잃지 않고 싶은 마음. 전 언제나……모든 것이 두려워요. 결국 잃게 될까봐.(솔직히 말하자면, 도박 자체도 그리 괜찮은 것은 아니었다. 겁이 많은 사람이 어찌 도박을 아무렇지 않게 하겠는가. 그냥 그것이 최선임을 아니 도망치지 않는 것 뿐이지. 곁에서 손을 잡아줄 사람이 없었더라면 결국에는 도망치고 말았을 지도 모를 일이다.) 그게 되면, 선배한테 도망쳐 나오라고 제가 외쳤겠어요? 전 지금도 하나도 괜찮지 않아요. 은찬선배가, 새빛이가 살기 위해 필사적으로 달리다 결국,(잠시 말을 멈춘다. 누구의 것인지 모르는, 굳기 시작한 혈흔을 잠시 만지작거린다. 어쩌면 망자의 마지막 흔적이였을지도 모를 그것을 닦아내지도 못하고 그저 쥐고 있다.)……그렇게, 되고. 하얀이가 스스로 생을 포기하고 죽음을 제 최선이라고 여기게 되는 걸 보면서 어떻게 괜찮겠어요. 선배라도 나오지 않았으면 저는……(어떻게든 걸어 나갔겠지. 살기 위해서 그렇게나 버텼으니 일단은 삶을 향해 나아갔을테다. 그 과정은 비록 지금처럼 겉으로나마 평온해보이지도 못했을 것이였고.)그걸 볼 제 생각은 안 하세요? 적어도, 그 사람들은 자신의 의지를 가지고, 원하는 걸 챙취하기 위한 선택들을 하고 절……(목이 잠긴 듯, 잠시 말을 멈추더니 떨리는 목소리를 내뱉는다.)응원해주고, 본인의 의사를 관철했죠. 다들 목적이 있었어요. 하지만 선배는…그게 아니잖아요. 필사적이지도 않은 모습으로, 삶에 그 어떤 미련이나 집착도 없이 그저 받아들이는 모습을 보면……(정말이지 무너져 내릴 것만 같았다. 처음부터 끝까지 본인을 생각한 결론이였으나 이하람은, 원래부터 이기적인 사람이였으며 범태정은, 특히 삶에 대한 의지와 관련된 부분에서는 완전한 미지였기에 그 어떤 단서조차도 찾지 못했기에 그 가정을 이하람 본인의 시선에서 재구성하고 만다.) 전 선배가 삶을 원했으면 좋겠다고요. 그런 상황이 아니더라도.(결국 출제자의 의도를 내뱉는다. 은연중에 그 모든 말들에서 티가 났을 그 목적성을.)……(시험이라. 맞을지도 모른다. 그러니까, 이 모든 말들은 일종의 중간 평가일지도 모른다. 지금은 삶에 대한 생각이 어떠세요? 저를 어떻게 여기시나요? 삶에 조금이라도 미련이 생기셨어요? 그런 의도들이 하나 둘 모여 자신도 모르게 만들어진 질문지 말이다.) ……모르겠어요. 그야……삶을 원하는 선배가 그런 상황에서 어떤 답을 고를 지 모르겠으니까.(이 질문에서 중요한 것은 ‘이하람과 함께하냐’가 아니었다. 위험한 상황, 생이 위험한 그런 상황에서 범태정이 생을 위한 선택을 할 것인가. 그 생에 이하람이 존재하는지, 아닌지는 삶을 갈구하는 세계선의 범태정이 알 수 있을테다. 지금의 이하람이 아니라.)
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block reverse">
+        <img src="https://pbs.twimg.com/profile_images/1925905809529008128/hKPkNoeN_bigger.jpg" alt="범태정">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:right;">범태정</div>
+          <div class="bubble-text">
+            글쎄···. (이 땅 위, 영원한 건 없으니 그렇게 두려워할 것도 없다는 생각을 구태여 입 밖으로 내지 않는다. 도움 되지 않을 말이 분명했기 때문에. 잃고 싶지 않은 마음이 대체 무언가.) 가능성이 어느 쪽이 높을지는 모르겠지만, 만약 닥친다면 옳은 판단을 내려야 할 거야. 한걸음만으로 결과가 전부 바뀔 수 있으니. (네 말에 결국 오버랩되는 존재들이 있다. 기억은 특기라, 그리고 되짚기에는 얼마 지나지도 않은 일이 기어코 뇌리를 스쳐가면 딴에는 호흡을 인식하는 수준에까지 이르고. 거친 표면이 매만지는 손에 엉겨 붙은 혈흔이 지난 시간을 긁어낸다.) 몇번이고 말했어. 너와 나는 같지 않다고. 그러니 어떤 생각을 하는지 전부 알 수 없고 이해할 수 없는 부분이 더 많은 게 당연해. 그 녀석들도 마찬가지일 테고. 어떤 선택을 내렸는가에 대한 평가 또한 필요 없지. (고저 없는 목소리가 변화 없는 진실을 읊는다.) 지금에 있어서 시간을 지체시킬 뿐이니까. 소중한 것을 잃고 싶지 않다고 했다면 그리 행동해. 나조차 원치 않은 내 삶 같은 걸 원하지 말고. (이제와 굳은 머리로 답을 내기엔 오래간 밝혀지지 않은 수수께끼. 사람은 어떻게 살아야 하는가. 어째서 삶을 욕망하는가. 어째서. 비슷하면서도 완전히 다른 이 종은 가진 것도 각기 제각각이라 발휘함에도 차이가 있는데, ―당신 앞에 선 이는 그 방법을 모른다. 겉으론 박학해 보이며 속은 검게 텅 빈 무지몽매한일 뿐. 하지만 당신은 그렇지 않지. 소중한 것의 가치를 알고, 희망하며 발버둥 치기에 가치 있다 생각하지 않는가. 그렇담 이제서는 그 한계를 알아채 줄 법도 한데. 이내 영글어지는 감상은 이해에 이르지 못한다.) 그러지 못하면, 그래···. (차가운 온도가 다시금 손을 바로 잡고.) 네가 원하는 대로 행동해 주기라도 할까. 이해하지 못하더라도 생존을 위한 보통의 행동을 판단하고 준수하란 뜻이면 충분히 할 수 있어. 여태껏 해온 것과 별반 다를 바 없으니까. 이하람 네가 '우리'의 생존을 원한다면. 그렇게라도, 거짓으로라도 살길 원한다면. 그렇다고 말해. 그 정도는 할 수 있어. (범태정은 이하람의 상실이 되지 않는다. 어떤 의미로든 해석될 수 있는 말을 도출해 낸 범태정은 당신의 생존에 무게를 두기로 한다. 애초에 그런 목적으로 이 걸음은 시작되었으니. 그저 말한마디였을 뿐이매, 지표 삼을 가치가 그뿐이었고.)
+            
+          </div>
+        </div>
+      </div>
+      <div class="message-block ">
+        <img src="https://pbs.twimg.com/profile_images/1925589902730907648/_DklkuRQ_bigger.jpg" alt="이하람">
+        <div class="bubble-container">
+          <div class="bubble-name" style="text-align:left;">이하람</div>
+          <div class="bubble-text">
+            (영원한 것이 없으니 두려워하는 것이 유한한 생을 가진 인류의 본능이겠지. 별다른 답이 없는 당신을 잠시금 응시한다.) 저는 언제나 최선을 다할 뿐이에요. 그게 옳은 판단일지는, 결과가 나오면 알 수 있겠죠. (옳은 판단이 무엇일지, 그 판단이 후회가 없는 판단이라고 단정 지을 수 있을지는 모르는 일이다. 그저 최선을 다했다고 말할 수 있길 바랄뿐.) 뭐, 그럴 일이 없으면 제일 좋고요. (어깨를 한 번 으쓱인다. 가벼운 일로 치부하고 싶은 것처럼.) 같지 않기에 이해하고 싶은 거죠. 이해하면 좀 덜 미워할 수 있을까. 좀 덜 아파할 수 있을까. 그게 그들의 최선이었으니 보내줘도 괜찮다. 그런 생각을 하고 싶으니까요.(한숨처럼 진심을 뱉는다. 결국 이해도 자신을 위한 것. 어쩌면 일종의 방어기제일 지도 모르겠다.) 제게 지금 소중한 건 선배니까 그렇죠. 삶을 왜 원치 않는 건데요? 그렇다고 포기하고 싶은 것도 아니잖아요. (나조차도 원치 않는 삶. 그 단어 하나만 본다고 한다면 낙담하여 생을 포기할 사람이 내뱉을 만한 단어여서, 자신도 모르게 등골이 서늘해지다가도 특유의 무덤덤한 얼굴을 보면, 다시 현실로 돌아오게 된다. 그렇다고 해도 이해가 가는 것은 아니어서. 미련을 갖고, 소중한 것을 만들고, 무언가를 갈망하기를 원하게 된다.) 제가 원하는 대로 행동해 준다고요.(맞잡은 손을 본다. 매정하지만 태정은 결국 이하람이 해달라는 대로 따라와 주는 편이었다.. 언제나. 그 지옥 같은 곳에서 눈물을 흘리고 있을 때도, 그곳에서 나올 때도, 지금도. 이런 다정함에 어찌 기대지 않을 수 있을까. 본인은 그렇게 생각하지 않더라도 말이다. 차가운 손을 본다. 제 온기가 옮겨가 조금은 따듯해진 그 손을. 어쩌면 당신도 이렇게 될 수 있지 않을까. 그런 생각이 자연스럽게 든다. '우리'의 생존을 목적으로 하고, 스스로에게 시선이 닿고, 그 뒤에 진짜 우리가 될 수 있다면......그렇다면......)이해해보려고 노력해 주겠다고 약속해 주면 안 돼요?  진실이 되어보려는, 이해해 보려는 시도라도 해주겠다고. (한 발 더 내디뎌본다.. 이 정도의 응석은 받아주지 않을까. 그 정도의 신뢰는 있지 않을까. 그런 도박을 해본다.)
+            
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

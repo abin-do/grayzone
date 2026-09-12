@@ -1,0 +1,88 @@
+.character-detail {
+  padding: 24px 32px 40px;
+}
+
+.character-detail-back {
+  margin-bottom: 4px;
+}
+
+.character-detail-body {
+  display: flex;
+  gap: 32px;
+}
+
+.character-detail-standing {
+  width: 240px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  height: auto;
+}
+
+.character-detail-info {
+  min-width: 0;
+}
+
+.character-detail-name {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+
+.character-detail-role {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.character-detail-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.character-tag {
+  font-size: 11px;
+  color: var(--text-dim);
+  background: var(--panel-alt);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.character-detail-bio {
+  margin-top: 20px;
+  line-height: 1.7;
+  color: var(--text);
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.character-relationships {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.character-relationships-title {
+  font-weight: 700;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+
+.character-relationships ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+@media (max-width: 640px) {
+  .character-detail {
+    padding: 18px 18px 32px;
+  }
+
+  .character-detail-body {
+    flex-direction: column;
+  }
+
+  .character-detail-standing {
+    width: 160px;
+  }
+}

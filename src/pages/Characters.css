@@ -1,0 +1,47 @@
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 4px;
+  padding: 8px;
+}
+
+.character-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--panel-alt);
+}
+
+.character-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.character-card:hover img {
+  transform: scale(1.04);
+}
+
+.character-card-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 14px 12px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.75));
+  color: #fff;
+}
+
+.character-card-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.character-card-role {
+  font-size: 11px;
+  color: #d7d6db;
+  opacity: 0.85;
+  margin-top: 2px;
+}
