@@ -57,7 +57,7 @@ export default function Home() {
             <span className="vn-text">
               <ParenText text={step.text} />
             </span>
-            <span className="vn-hint">▶ 클릭하면 다음으로</span>
+            <span className="vn-hint">▶</span>
           </>
         ) : (
           <span className="vn-text vn-text-empty">
