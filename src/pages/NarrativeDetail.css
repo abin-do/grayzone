@@ -1,5 +1,11 @@
 .narrative-detail {
-  padding: 24px 32px 40px;
+  padding: 16px;
+}
+
+@media (max-width: 640px) {
+  .narrative-detail {
+    padding: 9px;
+  }
 }
 
 .narrative-detail-title {

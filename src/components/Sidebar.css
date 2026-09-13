@@ -9,14 +9,14 @@
 .sidebar-list {
   list-style: none;
   margin: 0;
-  padding: 14px 0;
+  padding: 17px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  width: 54px;
+  gap: 7px;
+  width: 38px;
   background: var(--nav-bg);
-  border-radius: 999px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
 }
 
@@ -24,9 +24,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 29px;
+  height: 29px;
+  border-radius: var(--radius-sm);
   color: var(--nav-icon);
   transition: background-color 0.15s ease, color 0.15s ease;
 }
@@ -49,13 +49,13 @@
     transform: none;
     display: flex;
     justify-content: center;
-    padding: 10px 0 max(10px, env(safe-area-inset-bottom));
+    padding: 12px 0 max(12px, env(safe-area-inset-bottom));
     background: var(--bg);
   }
 
   .sidebar-list {
     flex-direction: row;
     width: auto;
-    padding: 8px;
+    padding: 10px;
   }
 }

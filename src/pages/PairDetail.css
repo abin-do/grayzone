@@ -1,0 +1,149 @@
+.pair-detail {
+  padding: 16px;
+  overflow: hidden;
+}
+
+.pair-detail-scene {
+  position: relative;
+  margin: 0 -32px;
+  min-height: 480px;
+  height: 74vh;
+  max-height: 680px;
+  overflow: hidden;
+}
+
+.pair-detail-scene-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.pair-detail-scene-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 22, 1) 0%,
+    rgba(20, 20, 22, 0.9) 20%,
+    rgba(20, 20, 22, 0) 42%,
+    rgba(20, 20, 22, 0) 65%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+}
+
+.pair-detail-name {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #fff;
+}
+
+.pair-detail-members {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 0 32px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.pair-member {
+  position: relative;
+  width: 260px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pair-member-standing {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 133%;
+  max-width: none;
+  object-fit: cover;
+  object-position: top center;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+
+.pair-member-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 40px 12px 20px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(to top, rgba(10, 10, 12, 0.9) 0%, rgba(10, 10, 12, 0) 100%);
+}
+
+.pair-member-quote {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
+.pair-member-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.pair-member-name-ko {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.pair-member-profile {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.pair-member-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 640px) {
+  .pair-detail {
+    padding: 9px;
+  }
+
+  .pair-detail-scene {
+    margin: 0 -18px;
+    min-height: 380px;
+    height: 64vh;
+  }
+
+  .pair-detail-members {
+    padding: 0 18px;
+  }
+
+  .pair-member {
+    width: 100%;
+    max-width: 220px;
+  }
+}

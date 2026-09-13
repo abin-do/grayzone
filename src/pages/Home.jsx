@@ -54,6 +54,7 @@ export default function Home() {
         {step ? (
           <>
             {step.speaker && <span className="vn-nameplate">{step.speaker}</span>}
+            {step.speaker && <span className="vn-divider" />}
             <span className="vn-text">
               <ParenText text={step.text} />
             </span>

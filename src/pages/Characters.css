@@ -1,8 +1,95 @@
+.pair-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+}
+
+.pair-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3.6 / 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--panel-alt);
+}
+
+.pair-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pair-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+.pair-card-sds {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  display: flex;
+}
+
+.pair-card-sd {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--panel-alt);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.pair-card-sd + .pair-card-sd {
+  margin-left: -14px;
+}
+
+.pair-card-sd-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.pair-card-info {
+  position: absolute;
+  right: 18px;
+  bottom: 10px;
+  text-align: right;
+  color: #fff;
+}
+
+.pair-card-name {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+@media (max-width: 640px) {
+  .pair-card {
+    aspect-ratio: 2 / 1;
+  }
+
+  .pair-card-sd {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pair-card-name {
+    font-size: 17px;
+  }
+}
+
 .character-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 4px;
-  padding: 8px;
+  padding: 16px;
 }
 
 .character-card {

@@ -8,6 +8,8 @@ const NAV_ITEMS = [
   { to: '/sessions', icon: 'menu_book', label: '세션 로그 백업' },
   { to: '/characters', icon: 'cloud', label: '캐릭터 백업' },
   { to: '/narratives', icon: 'bookmark', label: '서사 로그 백업' },
+  { to: '/log', icon: 'description', label: '개별 기록' },
+  { to: '/editor', icon: 'edit', label: '글 에디터' },
 ]
 
 export default function Sidebar() {

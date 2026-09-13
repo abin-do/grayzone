@@ -1,0 +1,113 @@
+.ce-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ce-load {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 720px;
+  margin: 0 auto 18px;
+}
+
+.ce-load .ce-label {
+  white-space: nowrap;
+}
+
+.ce-load .ce-input {
+  flex: 1;
+}
+
+.ce-load-status {
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.ce-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ce-field-wide {
+  grid-column: 1 / -1;
+}
+
+.ce-label {
+  font-size: 12px;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.ce-input,
+.ce-textarea {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.ce-textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.ce-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.ce-row-input {
+  flex: 1;
+}
+
+.ce-row-remove {
+  border: none;
+  background: var(--panel-alt);
+  color: var(--text-faint);
+  border-radius: var(--radius-sm);
+  width: 32px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ce-add {
+  align-self: flex-start;
+  border: 1px dashed var(--border);
+  background: none;
+  color: var(--text-dim);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ce-md-export {
+  display: flex;
+  gap: 6px;
+}
+
+.ce-md-btn {
+  border: none;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .ce-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

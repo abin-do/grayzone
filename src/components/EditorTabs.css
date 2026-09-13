@@ -1,0 +1,25 @@
+.editor-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.editor-tab {
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.editor-tab:hover {
+  background: var(--panel-alt);
+  color: var(--text);
+}
+
+.editor-tab.is-active {
+  background: var(--accent);
+  color: #fff;
+}

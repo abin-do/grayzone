@@ -8,7 +8,6 @@ export default function SessionList() {
   return (
     <div className="page">
       <div className="panel">
-        <div className="page-title">세션 로그 백업</div>
         {sessions.length === 0 ? (
           <div className="empty-state">
             src/content/sessions/&lt;폴더명&gt;/ 에 meta.json, card.*, log.html 을 추가하면 여기 표시됩니다.

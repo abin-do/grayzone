@@ -1,5 +1,5 @@
 .log-detail {
-  padding: 24px 32px 56px;
+  padding: 16px;
 }
 
 .log-detail-title {
@@ -8,6 +8,7 @@
   margin: 4px 0 32px;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
+  text-align: center;
 }
 
 .log-detail-body {
@@ -39,12 +40,28 @@
   margin-bottom: 0;
 }
 
+/* Plain semantic HTML from an authored log.html (e.g. the /editor tool)
+   gets the same look automatically, without needing our class names. */
+.log-detail-body p {
+  margin: 0 0 22px;
+  color: var(--text);
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.9;
+  text-indent: 1em;
+}
+
+.log-detail-body p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 640px) {
   .log-detail {
-    padding: 18px 18px 40px;
+    padding: 9px;
   }
 
-  .log-paragraph {
+  .log-paragraph,
+  .log-detail-body p {
     font-size: 14.5px;
   }
 }

@@ -22,7 +22,6 @@ export default function Gallery() {
   return (
     <div className="page">
       <div className="panel">
-        <div className="page-title">커미션 / 이미지 백업</div>
         {items.length === 0 ? (
           <div className="empty-state">
             src/content/gallery/&lt;폴더명&gt;/ 에 meta.json, image.* 를 추가하면 여기 표시됩니다.

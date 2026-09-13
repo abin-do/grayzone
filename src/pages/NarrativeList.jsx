@@ -9,7 +9,6 @@ export default function NarrativeList() {
   return (
     <div className="page">
       <div className="panel">
-        <div className="page-title">서사 로그 백업</div>
         {narratives.length === 0 ? (
           <div className="empty-state">
             src/content/narratives/ 에 .html 파일을 추가하면 여기 표시됩니다.

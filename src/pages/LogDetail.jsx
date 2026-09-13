@@ -19,39 +19,40 @@ function groupsFromText(text) {
 export default function LogDetail() {
   const { slug } = useParams()
   const entry = getLogEntry(slug)
-  const [text, setText] = useState(null)
+  const [content, setContent] = useState(null)
 
   useEffect(() => {
     let cancelled = false
-    setText(null)
-    if (!entry?.textUrl) return
-    fetch(entry.textUrl)
+    setContent(null)
+    const url = entry?.htmlUrl || entry?.textUrl
+    if (!url) return
+    fetch(url)
       .then((res) => res.text())
-      .then((t) => {
-        if (!cancelled) setText(t)
+      .then((body) => {
+        if (!cancelled) setContent({ kind: entry.htmlUrl ? 'html' : 'text', body })
       })
     return () => {
       cancelled = true
     }
-  }, [entry?.textUrl])
+  }, [entry?.htmlUrl, entry?.textUrl])
 
-  if (!entry) return <Navigate to="/narratives" replace />
-
-  const groups = text ? groupsFromText(text) : []
+  if (!entry) return <Navigate to="/log" replace />
 
   return (
     <div className="page">
       <div className="panel log-detail">
-        <Link to="/narratives" className="back-link">
+        <Link to="/log" className="back-link">
           <Icon name="arrow_back" size={18} />
           목록으로
         </Link>
         <h1 className="log-detail-title">{entry.title || `기록 #${entry.slug}`}</h1>
         <div className="log-detail-body">
-          {text === null ? (
+          {content === null ? (
             <div className="log-detail-loading">불러오는 중...</div>
+          ) : content.kind === 'html' ? (
+            <div dangerouslySetInnerHTML={{ __html: content.body }} />
           ) : (
-            groups.map((lines, gi) => (
+            groupsFromText(content.body).map((lines, gi) => (
               <div key={gi} className="log-group">
                 {lines.map((line, li) => (
                   <p key={li} className="log-paragraph">

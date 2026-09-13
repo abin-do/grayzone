@@ -112,7 +112,7 @@ export function getNarrative(slug) {
 
 // ---------- Log entries (개별 기록 / 블로그 글) ----------
 // Linked to from inside narrative/session dialogue (e.g. <a href="#/log/01">),
-// not from the sidebar - src/content/log/<id>/{meta.json, log.txt}.
+// not from the sidebar - src/content/log/<id>/{meta.json, log.txt or log.html}.
 
 const logMeta = import.meta.glob('/src/content/log/*/meta.json', {
   eager: true,
@@ -123,11 +123,20 @@ const logText = import.meta.glob('/src/content/log/*/log.txt', {
   query: '?url',
   import: 'default',
 })
+// log.html (e.g. exported from the built-in /editor) takes priority over
+// log.txt when both exist.
+const logHtml = import.meta.glob('/src/content/log/*/log.html', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
 
 let _logEntries = null
 export function getLogEntries() {
   if (!_logEntries) {
-    _logEntries = collect(logMeta, { textUrl: logText })
+    _logEntries = collect(logMeta, { textUrl: logText, htmlUrl: logHtml }).sort((a, b) =>
+      a.slug.localeCompare(b.slug, undefined, { numeric: true }),
+    )
   }
   return _logEntries
 }
@@ -152,16 +161,78 @@ const characterStanding = import.meta.glob('/src/content/characters/*/standing.*
   query: '?url',
   import: 'default',
 })
+// Optional: bio.html (e.g. exported from /editor) takes priority over the
+// plain "bio" string in meta.json when present.
+const characterBioHtml = import.meta.glob('/src/content/characters/*/bio.html', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+const characterSd = import.meta.glob('/src/content/characters/*/sd.*', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+const characterHead = import.meta.glob('/src/content/characters/*/head.*', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+// Long-form fields can be written as markdown files instead of cramming them
+// into meta.json as escaped strings - if the file exists, it wins.
+const characterAppearanceMd = import.meta.glob('/src/content/characters/*/appearance.md', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+const characterPersonalityMd = import.meta.glob('/src/content/characters/*/personality.md', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+const characterEtcMd = import.meta.glob('/src/content/characters/*/etc.md', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+const characterSecretMd = import.meta.glob('/src/content/characters/*/secret.md', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
 
 let _characters = null
-export function getCharacters() {
+function loadCharacters() {
   if (!_characters) {
-    _characters = collect(characterMeta, {
+    const withoutPair = collect(characterMeta, {
       portraitUrl: characterPortrait,
       standingUrl: characterStanding,
+      bioHtmlUrl: characterBioHtml,
+      sdUrl: characterSd,
+      headUrl: characterHead,
+      appearanceMdUrl: characterAppearanceMd,
+      personalityMdUrl: characterPersonalityMd,
+      etcMdUrl: characterEtcMd,
+      secretMdUrl: characterSecretMd,
     })
+    // Cross-reference pairs so each character knows its pair + partner.
+    const bySlug = new Map(withoutPair.map((c) => [c.slug, c]))
+    for (const pair of getPairs()) {
+      for (const slug of pair.characters || []) {
+        const c = bySlug.get(slug)
+        if (c) {
+          c.pairSlug = pair.slug
+          c.partnerSlug = pair.characters.find((s) => s !== slug) ?? null
+        }
+      }
+    }
+    _characters = withoutPair
   }
   return _characters
+}
+
+export function getCharacters() {
+  return loadCharacters()
 }
 
 export function getCharacter(slug) {
@@ -171,7 +242,38 @@ export function getCharacter(slug) {
 export function findCharacterByName(name) {
   if (!name) return null
   const target = name.trim().toLowerCase()
-  return getCharacters().find((c) => (c.name || '').trim().toLowerCase() === target) ?? null
+  return (
+    getCharacters().find(
+      (c) =>
+        (c.name || '').trim().toLowerCase() === target ||
+        (c.nameKo || '').trim().toLowerCase() === target,
+    ) ?? null
+  )
+}
+
+// ---------- Character pairs (캐릭터 페어) ----------
+// A pair groups two characters under one shared banner - src/content/pairs/<slug>/.
+
+const pairMeta = import.meta.glob('/src/content/pairs/*/meta.json', {
+  eager: true,
+  import: 'default',
+})
+const pairBackground = import.meta.glob('/src/content/pairs/*/background.*', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+
+let _pairs = null
+export function getPairs() {
+  if (!_pairs) {
+    _pairs = collect(pairMeta, { backgroundUrl: pairBackground })
+  }
+  return _pairs
+}
+
+export function getPair(slug) {
+  return getPairs().find((p) => p.slug === slug) ?? null
 }
 
 // ---------- Gallery (커미션/이미지 백업) ----------

@@ -1,6 +1,6 @@
 :root {
   --bg: #eeedf0;
-  --panel: rgba(28, 28, 30, 0.8);
+  --panel: rgba(28, 28, 30, 0.85);
   --panel-alt: #232326;
   --text: #f2f2f4;
   --text-dim: #9a99a3;
@@ -11,9 +11,9 @@
   --nav-bg: #8b8b90;
   --nav-icon: #ffffff;
   --nav-icon-active: #1c1c1e;
-  --radius-lg: 28px;
-  --radius-md: 16px;
-  --radius-sm: 10px;
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
   --sidebar-w: 76px;
   --font: 'Pretendard Variable', 'Pretendard', system-ui, -apple-system, 'Malgun Gothic', sans-serif;
 }
