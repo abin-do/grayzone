@@ -110,6 +110,32 @@ export function getNarrative(slug) {
   return getNarratives().find((n) => n.slug === slug) ?? null
 }
 
+// ---------- Log entries (개별 기록 / 블로그 글) ----------
+// Linked to from inside narrative/session dialogue (e.g. <a href="#/log/01">),
+// not from the sidebar - src/content/log/<id>/{meta.json, log.txt}.
+
+const logMeta = import.meta.glob('/src/content/log/*/meta.json', {
+  eager: true,
+  import: 'default',
+})
+const logText = import.meta.glob('/src/content/log/*/log.txt', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+
+let _logEntries = null
+export function getLogEntries() {
+  if (!_logEntries) {
+    _logEntries = collect(logMeta, { textUrl: logText })
+  }
+  return _logEntries
+}
+
+export function getLogEntry(slug) {
+  return getLogEntries().find((l) => l.slug === slug) ?? null
+}
+
 // ---------- Characters (캐릭터 백업) ----------
 
 const characterMeta = import.meta.glob('/src/content/characters/*/meta.json', {

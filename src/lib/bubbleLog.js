@@ -27,13 +27,13 @@ export function parseBubbleLog(html) {
     const lines = Array.from(el.querySelectorAll('.bubble-text'))
       .map((b) => stripHandle(b.innerHTML))
       .filter(Boolean)
+      .map((value) => ({ kind: 'html', value }))
     if (lines.length === 0) return
     blocks.push({
       type: 'dialogue',
       speaker,
       avatarUrl,
       isYou: el.classList.contains('reverse'),
-      raw: true,
       lines,
     })
   })

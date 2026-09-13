@@ -83,6 +83,46 @@
   margin-bottom: 0;
 }
 
+/* Character-sheet dice roll templates (e.g. CoC sanity/health checks) come
+   through as real <table> markup with their own pass/fail background
+   colors already baked in as inline styles - we only need to supply a base
+   light surface + dark text (the export has no colors of its own, it relies
+   on Roll20's site CSS which we don't load) and some basic table chrome. */
+.r20-table-wrap {
+  margin: 8px 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.r20-table-wrap table {
+  border-collapse: collapse;
+  background: #fff;
+  color: #1c1c1e;
+  font-size: 13px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.r20-table-wrap caption {
+  caption-side: top;
+  background: #1c1c1e;
+  color: #fff;
+  font-weight: 700;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.r20-table-wrap td {
+  border: 1px solid #d8d8da;
+  padding: 6px 12px;
+}
+
+.r20-table-wrap .sheet-template_label {
+  background: #eeeef0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 @media (max-width: 640px) {
   .r20-row {
     padding: 12px;

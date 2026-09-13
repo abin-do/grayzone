@@ -8,6 +8,7 @@ import NarrativeDetail from './pages/NarrativeDetail.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Characters from './pages/Characters.jsx'
 import CharacterDetail from './pages/CharacterDetail.jsx'
+import LogDetail from './pages/LogDetail.jsx'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/characters" element={<Characters />} />
           <Route path="/characters/:slug" element={<CharacterDetail />} />
+          <Route path="/log/:slug" element={<LogDetail />} />
         </Routes>
       </div>
     </HashRouter>

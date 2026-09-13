@@ -49,19 +49,31 @@ export default function Roll20Log({ blocks }) {
             <Avatar src={block.avatarUrl} name={block.speaker} />
             <div className="r20-body">
               {block.speaker && <div className="r20-name">{block.speaker}</div>}
-              {block.lines.map((line, j) =>
-                block.raw ? (
-                  <p
-                    key={j}
-                    className="r20-line"
-                    dangerouslySetInnerHTML={{ __html: highlightParensHtml(line) }}
-                  />
-                ) : (
+              {block.lines.map((line, j) => {
+                if (line.kind === 'table') {
+                  return (
+                    <div
+                      key={j}
+                      className="r20-table-wrap"
+                      dangerouslySetInnerHTML={{ __html: line.value }}
+                    />
+                  )
+                }
+                if (line.kind === 'html') {
+                  return (
+                    <p
+                      key={j}
+                      className="r20-line"
+                      dangerouslySetInnerHTML={{ __html: highlightParensHtml(line.value) }}
+                    />
+                  )
+                }
+                return (
                   <p key={j} className="r20-line">
-                    <ParenText text={line} />
+                    <ParenText text={line.value} />
                   </p>
-                ),
-              )}
+                )
+              })}
             </div>
           </div>
         )
